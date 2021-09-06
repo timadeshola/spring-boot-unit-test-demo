@@ -47,7 +47,6 @@ public class ResourceAdvice {
                 .status(HttpStatus.valueOf(statusCode))
                 .error(errorDetails)
                 .build());
-
     }
 
     @ExceptionHandler(EntityNotFoundException.class)
@@ -63,7 +62,6 @@ public class ResourceAdvice {
                 .status(HttpStatus.NOT_FOUND)
                 .error(errorDetails)
                 .build());
-
     }
 
     @ExceptionHandler(ResponseStatusException.class)
@@ -106,7 +104,7 @@ public class ResourceAdvice {
                 .details(request.getDescription(true))
                 .timestamp(LocalDate.now())
                 .build();
-        return ResponseEntity.ok().body(AppResponse.<ErrorDetails>builder()
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(AppResponse.<ErrorDetails>builder()
                 .message(ex.getMessage())
                 .status(HttpStatus.BAD_REQUEST)
                 .error(errorDetails)
@@ -121,7 +119,7 @@ public class ResourceAdvice {
                 .details(request.getDescription(true))
                 .timestamp(LocalDate.now())
                 .build();
-        return ResponseEntity.ok().body(AppResponse.<ErrorDetails>builder()
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(AppResponse.<ErrorDetails>builder()
                 .message(ex.getMessage())
                 .status(HttpStatus.BAD_REQUEST)
                 .error(errorDetails)
@@ -136,7 +134,7 @@ public class ResourceAdvice {
                 .details(request.getDescription(true))
                 .timestamp(LocalDate.now())
                 .build();
-        return ResponseEntity.ok().body(AppResponse.<ErrorDetails>builder()
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(AppResponse.<ErrorDetails>builder()
                 .message(ex.getMessage())
                 .status(HttpStatus.BAD_REQUEST)
                 .error(errorDetails)
@@ -151,7 +149,7 @@ public class ResourceAdvice {
                 .details(request.getDescription(true))
                 .timestamp(LocalDate.now())
                 .build();
-        return ResponseEntity.ok().body(AppResponse.<ErrorDetails>builder()
+        return ResponseEntity.status(HttpStatus.UNSUPPORTED_MEDIA_TYPE).body(AppResponse.<ErrorDetails>builder()
                 .message(ex.getMessage())
                 .status(HttpStatus.BAD_REQUEST)
                 .error(errorDetails)
@@ -166,7 +164,7 @@ public class ResourceAdvice {
                 .details(request.getDescription(true))
                 .timestamp(LocalDate.now())
                 .build();
-        return ResponseEntity.ok().body(AppResponse.<ErrorDetails>builder()
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(AppResponse.<ErrorDetails>builder()
                 .message(ex.getMessage())
                 .status(HttpStatus.BAD_REQUEST)
                 .error(errorDetails)
@@ -182,7 +180,7 @@ public class ResourceAdvice {
                         .rejectedValue(((FieldError) error).getRejectedValue())
                         .objectName(error.getObjectName())
                         .build()));
-        return ResponseEntity.ok().body(AppResponse.<List<ErrorDetails>>builder()
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(AppResponse.<List<ErrorDetails>>builder()
                 .status(HttpStatus.BAD_REQUEST)
                 .error(ErrorDetails.builder()
                         .message("Validation Error")
