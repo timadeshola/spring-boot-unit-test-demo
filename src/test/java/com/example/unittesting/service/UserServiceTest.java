@@ -18,8 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Project title: unit-testing
@@ -169,7 +168,7 @@ class UserServiceTest {
     void testFetchUsers() {
         List<UserRequest> requests = new ArrayList<>();
 
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 20; i++) {
             request = UserRequest.builder()
                     .username(faker.name().username())
                     .firstName(faker.name().firstName())
@@ -186,6 +185,7 @@ class UserServiceTest {
         PaginateResponse<UserResponse> fetchUsers = userService.fetchUsers(0, 20);
 
 
+        assertTrue((long) userList.size() <= 20, () -> "User count is greater than 20");
         assertNotNull(users);
         assertNotNull(requests);
         assertNotNull(userList);
@@ -195,6 +195,5 @@ class UserServiceTest {
         assertThat(fetchUsers.getTotalElements()).isInstanceOf(Long.class);
         assertThat(fetchUsers.getContent().size()).isGreaterThanOrEqualTo(10);
     }
-
 
 }

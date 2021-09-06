@@ -5,6 +5,7 @@ import com.example.unittesting.service.UserService;
 import com.example.unittesting.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.context.annotation.Bean;
 
 /**
@@ -23,5 +24,10 @@ public class TestConfig {
     @Bean
     public UserService userService() {
         return new UserServiceImpl(userRepository);
+    }
+
+    @Bean
+    public TestRestTemplate restTemplate() {
+        return new TestRestTemplate();
     }
 }
