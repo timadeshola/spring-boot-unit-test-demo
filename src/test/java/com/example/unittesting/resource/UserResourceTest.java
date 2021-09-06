@@ -6,6 +6,7 @@ import com.example.unittesting.service.UserService;
 import com.github.javafaker.Faker;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -47,6 +48,7 @@ class UserResourceTest {
 
     @SneakyThrows
     @Test
+    @DisplayName("Create User Endpoint - Test")
     void testCreateUserEndpoint() {
         request = UserRequest.builder()
                 .username("timadeshola")
@@ -66,6 +68,7 @@ class UserResourceTest {
 
     @SneakyThrows
     @Test
+    @DisplayName(value = "Update User Endpoint - Test")
     void testUpdateUserEndpoint() {
         request = UserRequest.builder()
                 .username("timadeshola")
@@ -85,6 +88,7 @@ class UserResourceTest {
 
     @SneakyThrows
     @Test
+    @DisplayName(value = "Delete User Endpoint - Test")
     void testDeleteUserEndpoint() {
         mockMvc.perform(delete("/users/{id}", 1)
                         .contentType(MediaType.APPLICATION_JSON)
@@ -96,6 +100,7 @@ class UserResourceTest {
 
     @SneakyThrows
     @Test
+    @DisplayName(value = "Fetch User by ID Endpoint - Test")
     void testFetchUserByIdEndpoint() {
         mockMvc.perform(get("/users/fetchById/{id}", 1)
                         .contentType(MediaType.APPLICATION_JSON)
@@ -107,6 +112,7 @@ class UserResourceTest {
 
     @SneakyThrows
     @Test
+    @DisplayName(value = "Fetch User by Username Endpoint - Test")
     void testFetchUserByUsernameEndpoint() {
         mockMvc.perform(get("/users/fetchByUsername/{username}", "timadeshola")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -117,6 +123,7 @@ class UserResourceTest {
 
     @SneakyThrows
     @Test
+    @DisplayName(value = "Fetch All User Endpoint - Test")
     void testFetchUserByUsersEndpoint() {
         mockMvc.perform(get("/users/viewAll")
                         .queryParam("start", "0")

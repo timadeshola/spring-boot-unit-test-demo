@@ -8,6 +8,7 @@ import com.example.unittesting.persistence.entity.User;
 import com.example.unittesting.persistence.repository.UserRepository;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -48,6 +49,7 @@ class UserServiceTest {
     }
 
     @Test
+    @DisplayName("Create User Service Test")
     void testCreateUser() {
         request = UserRequest.builder()
                 .username(faker.name().username())
@@ -69,6 +71,7 @@ class UserServiceTest {
     }
 
     @Test
+    @DisplayName("Update User Service Test")
     void testUpdateUser() {
         request = UserRequest.builder()
                 .username(faker.name().username())
@@ -95,6 +98,7 @@ class UserServiceTest {
     }
 
     @Test
+    @DisplayName("Delete User Service Test")
     void testDeleteUser() {
         request = UserRequest.builder()
                 .username(faker.name().username())
@@ -111,6 +115,7 @@ class UserServiceTest {
     }
 
     @Test
+    @DisplayName("Fetch User By ID - Service Test")
     void testFetchUserById() {
         request = UserRequest.builder()
                 .username(faker.name().username())
@@ -135,6 +140,7 @@ class UserServiceTest {
     }
 
     @Test
+    @DisplayName("Fetch User By Username - Service Test")
     void testFetchUserByUsername() {
         request = UserRequest.builder()
                 .username(faker.name().username())
@@ -159,6 +165,7 @@ class UserServiceTest {
     }
 
     @Test
+    @DisplayName("Fetch All Users - Service Test")
     void testFetchUsers() {
         List<UserRequest> requests = new ArrayList<>();
 

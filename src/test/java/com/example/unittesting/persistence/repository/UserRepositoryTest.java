@@ -5,6 +5,7 @@ import com.example.unittesting.model.enums.Status;
 import com.example.unittesting.persistence.entity.User;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -41,6 +42,7 @@ class UserRepositoryTest {
     }
 
     @Test
+    @DisplayName("Save User - Repository Test")
     void testSaveUser() {
         user = User.builder()
                 .id(1L)
@@ -69,6 +71,7 @@ class UserRepositoryTest {
 
 
     @Test
+    @DisplayName("Fetch User - Repository Test")
     void testFetchUserByEmail() {
         user = User.builder()
                 .id(1L)

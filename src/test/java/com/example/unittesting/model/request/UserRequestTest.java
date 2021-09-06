@@ -2,6 +2,7 @@ package com.example.unittesting.model.request;
 
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Profile;
@@ -30,6 +31,7 @@ class UserRequestTest {
     }
 
     @Test
+    @DisplayName("User Request Model Test")
     void testUserRequestModel() {
         request = UserRequest.builder()
                 .username("timadeshola")

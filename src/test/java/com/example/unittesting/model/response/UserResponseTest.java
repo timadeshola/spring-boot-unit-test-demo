@@ -3,6 +3,7 @@ package com.example.unittesting.model.response;
 import com.example.unittesting.model.enums.Status;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Profile;
@@ -34,6 +35,7 @@ class UserResponseTest {
     }
 
     @Test
+    @DisplayName("User Response Model Test")
     void testUserResponseModel() {
         response = UserResponse.builder()
                 .id(1L)
