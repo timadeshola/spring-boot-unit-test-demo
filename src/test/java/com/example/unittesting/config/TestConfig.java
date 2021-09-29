@@ -30,4 +30,5 @@ public class TestConfig {
     public TestRestTemplate restTemplate() {
         return new TestRestTemplate();
     }
+
 }

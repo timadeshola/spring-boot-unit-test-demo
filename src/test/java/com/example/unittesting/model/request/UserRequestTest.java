@@ -18,7 +18,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * Date: 9/6/21
  * Time: 5:32 PM
  */
-@SpringBootTest
 @Profile("test")
 class UserRequestTest {
 

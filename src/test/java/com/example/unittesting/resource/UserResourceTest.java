@@ -57,10 +57,12 @@ class UserResourceTest {
                 .email(faker.internet().emailAddress())
                 .build();
 
+        String json = AppUtils.toJson(request);
+
         mockMvc.perform(post("/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON)
-                        .content(AppUtils.toJson(request)))
+                        .content(json))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.message").value(SUCCESS))
                 .andExpect(jsonPath("$.status").value("CREATED"));
