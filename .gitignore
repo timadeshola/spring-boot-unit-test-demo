@@ -35,3 +35,4 @@ build/
 unit-testing.iml
 mvnw
 mvnw.cmd
+logs/
